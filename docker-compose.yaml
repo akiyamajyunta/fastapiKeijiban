@@ -1,0 +1,18 @@
+#version: '3.9'
+services:
+  # demo-app:
+  #   build: .
+  #   volumes:
+  #     - .dockervenv:/src/.venv
+  #     - .:/src
+  #   ports:
+  #     - 8000:8000  # ホストマシンのポート8000を、docker内のポート8000に接続する
+  mysql:
+    image: mysql:9.2.0
+    container_name: sample_sql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "sample"
+      TZ: "Asia/Tokyo"
