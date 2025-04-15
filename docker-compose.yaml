@@ -4,7 +4,7 @@ services:
     container_name: keijiban-back
     build: backend
     ports:
-      - 8000:8000  # ホストマシンのポート8000を、docker内のポート8000に接続する
+      - 8123:8123  # ホストマシンのポート8000を、docker内のポート8000に接続する
   mysql:
     image: mysql:9.2.0
     container_name: keijiban-sql

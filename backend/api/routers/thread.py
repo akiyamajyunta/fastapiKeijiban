@@ -1,8 +1,6 @@
 from fastapi import APIRouter,Header,Response
 from .schema import (
     Thread,
-    Player,
-    GetPlayer,
     GetResponse,
     CreateRequest,
     CreateResponse,

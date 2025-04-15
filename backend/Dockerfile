@@ -3,8 +3,11 @@ FROM python:3.9-buster
 
 WORKDIR /workspace
 
-COPY requirements.txt ./
+RUN mkdir /workspace/api
+
 COPY api ./
+COPY requirements.txt ./ /workspace/
+
 
 RUN pip install -r requirements.txt
 RUN cd api
