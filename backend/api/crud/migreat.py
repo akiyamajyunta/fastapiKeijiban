@@ -21,6 +21,9 @@ CREATE TABLE IF NOT EXISTS threads (
 );
 """)
 
+
+
+
 cursor.close()
 conn.close()
 
