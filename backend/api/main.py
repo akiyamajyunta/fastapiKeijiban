@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from routers import thread
+from crud.migreat import maketable
 
 app = FastAPI()
 
@@ -22,6 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+maketable()
 
 app.include_router(thread.router)
 

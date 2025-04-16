@@ -1,31 +1,32 @@
 import mysql.connector
 
+def maketable():
+    conn = mysql.connector.connect(
+        host="mysql",
+        port="3306",
+        user="root",
+        password="root",
+        database="sample"
+    )
 
-conn = mysql.connector.connect(
-    host="mysql",
-    port="3306",
-    user="root",
-    password="root",
-    database="sample"
-)
-print(conn.is_connected())
+    print(conn.is_connected())
 
-cursor = conn.cursor()
+    cursor = conn.cursor()
 
-cursor.execute(
-"""
-CREATE TABLE IF NOT EXISTS threads (
-    id              INT            NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_name       VARCHAR(10)    NOT NULL,
-    content         VARCHAR(140)   NOT NULL
-);
-""")
+    cursor.execute(
+    """
+    CREATE TABLE IF NOT EXISTS threads (
+        id              INT            NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_name       VARCHAR(10)    NOT NULL,
+        content         VARCHAR(140)   NOT NULL
+    );
+    """)
 
 
 
 
-cursor.close()
-conn.close()
+    cursor.close()
+    conn.close()
 
 # テーブルを作成する
 # テーブルは id, user_name, content を含める

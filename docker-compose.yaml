@@ -5,6 +5,11 @@ services:
     build: backend
     ports:
       - 8000:8000  # ホストマシンのポート8000を、docker内のポート8000に接続する
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
   mysql:
     image: mysql:9.2.0
     container_name: keijiban-sql
@@ -14,3 +19,10 @@ services:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "sample"
       TZ: "Asia/Tokyo"
+
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

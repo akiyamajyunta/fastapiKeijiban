@@ -14,7 +14,7 @@ type Threads = {
 
 
 async function fetchThreads(): Promise<Threads> {
-    const url = "http://localhost:8000/threads";
+    const url = "http://127.0.0.1:8000/threads";
 
     const response = await fetch(
         url,
@@ -23,7 +23,7 @@ async function fetchThreads(): Promise<Threads> {
             headers: {"content-type": "application/json"},
         }
     );
-    
+
     const threads = await response.json();
     return threads;
 
